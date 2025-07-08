@@ -17,7 +17,7 @@ The primary objective of this Virtual HomeLab is to provide a safe, controlled e
 
 - **VMware Fusion Player (Free):** Virtualization platform on both Windows and Mac.
 - **Kali Linux ISO:** Offensive security and testing environment.
-- **Ubuntu Server ISO:** Target system for hardening, logging, and service simulation.
+- **Ubuntu Server ISO:** Target system (CLI-only) for hardening, logging, and service simulation.
 - **Linux Command Line:** Bash scripting and configuration.
 
 ## Steps
@@ -56,9 +56,16 @@ The primary objective of this Virtual HomeLab is to provide a safe, controlled e
 
 6. **Install Tools:**
    - Kali Linux:
-     - Nmap, Scapy, Metasploit Framework, etc.
+     - Nmap
+     - netcat-openbsd
+     - python3-scapy
+     - metasploit-framework
    - Ubuntu:
-     - UFW, fail2ban, syslog utilities.
+     - UFW
+     - fail2ban
+     - rsyslog
+     - net-tools
+     - vim, nano, htop, curl, wget
 
 7. **Document Configuration:**
    - VM names and purpose.
@@ -68,9 +75,14 @@ The primary objective of this Virtual HomeLab is to provide a safe, controlled e
    - Notes on post-install steps.
 
 8. **Automate Where Possible:**
-   - Bash scripts for updates and installations.
-   - Documented command history.
-   - Include any reusable setup scripts in this repo.
+   - Bash scripts for:
+     - System updates
+     - Installing Kali tools
+     - Installing Ubuntu tools
+     - Exporting package lists
+     - Mounting shared folders
+   - Stored in the /scripts folder with README.
+   - Documented usage instructions included.
 
 9. **Export or Backup VMs:**
    - Optional for sharing between hosts or archiving.
@@ -79,7 +91,9 @@ The primary objective of this Virtual HomeLab is to provide a safe, controlled e
     - `/docs` folder containing:
       - kali_setup.md
       - ubuntu_setup.md
-      - network_diagram.png or .drawio
+      - kali_package_list.txt
+      - ubuntu_package_list.txt
+    - `/scripts` folder with automation scripts.
 
 ---
 
@@ -89,15 +103,18 @@ The primary objective of this Virtual HomeLab is to provide a safe, controlled e
   - M1 virtualization architecture differences.
   - Network configuration issues.
   - Resource allocation limits.
+  - Shared folder implementation.
 
 ---
 
 ## Results
 
 - Successfully provisioned a consistent Virtual HomeLab on both Windows 11 Desktop and MacBook Air M1.
-- Created two VMs (Kali Linux and Ubuntu) with equivalent functionality on both hosts.
+- Created two VMs (Kali Linux with GUI, Ubuntu Server CLI-only) with equivalent functionality on both hosts.
 - Established networking for testing and log generation.
 - Enabled safe, controlled environment for all future portfolio projects.
+- Exported package lists from both VMs for reproducibility.
+- Shared folders used to move package_list.txt to host for documentation.
 
 ---
 
