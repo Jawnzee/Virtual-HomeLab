@@ -99,6 +99,11 @@ The primary objective of this Virtual HomeLab is to provide a safe, controlled e
 
 ## Problems Encountered
 
+- **Network Configuration Decisions**
+    - Issue: Choosing between NAT and Host-Only networking for VMs.
+    - Resolution:
+        - Used **NAT** for initial setup, package installation, and updates.
+        - Documented that **Host-Only** can be switched on later for isolated attack simulations.
 - **VMware Shared Folders Did Not Auto-Mount**
     - Issue: After installing open-vm-tools, shared folders were not automatically mounted in Kali or Ubuntu.
     - Solution:
