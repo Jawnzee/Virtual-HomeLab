@@ -99,11 +99,24 @@ The primary objective of this Virtual HomeLab is to provide a safe, controlled e
 
 ## Problems Encountered
 
-- Document challenges such as:
-  - M1 virtualization architecture differences.
-  - Network configuration issues.
-  - Resource allocation limits.
-  - Shared folder implementation.
+- **VMware Shared Folders Did Not Auto-Mount**
+    - Issue: After installing open-vm-tools, shared folders were not automatically mounted in Kali or Ubuntu.
+    - Solution:
+        - Installed `open-vm-tools` and `open-vm-tools-desktop` in Kali.
+        - Used `vmhgfs-fuse` command to manually mount shared folders:
+
+          ```bash
+          sudo vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other
+          ```
+- **Kali Package Installation Error**
+    - Issue: The command `sudo apt install netcat` failed with "No installation candidate."
+    - Cause: Kali splits netcat into explicit variants.
+    - Solution: Installed `netcat-openbsd` instead:
+        
+        ```bash
+        sudo apt install netcat-openbsd
+        ```
+    - Documented the corrected install command in automation scripts.
 
 ---
 
